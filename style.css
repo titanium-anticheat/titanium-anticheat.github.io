@@ -475,6 +475,167 @@ body {
     background: var(--primary-bg);
 }
 
+.download-main {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.download-card-single {
+    background: var(--secondary-bg);
+    border: 2px solid var(--accent-color);
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    max-width: 600px;
+    width: 100%;
+    animation: cardGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes cardGlow {
+    0% {
+        box-shadow: 0 0 20px rgba(108, 123, 255, 0.3);
+        border-color: var(--accent-color);
+    }
+    100% {
+        box-shadow: 0 0 40px rgba(108, 123, 255, 0.6);
+        border-color: var(--accent-hover);
+    }
+}
+
+.download-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 30px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    animation: downloadIconPulse 2s ease-in-out infinite;
+}
+
+@keyframes downloadIconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.download-card-single h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.download-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.download-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: var(--tertiary-bg);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.feature-item i {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.file-info {
+    background: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.file-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.file-name {
+    font-weight: bold;
+    color: var(--accent-color);
+    font-family: 'Courier New', monospace;
+}
+
+.file-size {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.checksum {
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.download-main-btn {
+    font-size: 1.2rem;
+    padding: 20px 40px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.download-main-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.8s;
+}
+
+.download-main-btn:hover::before {
+    left: 100%;
+}
+
+.download-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    background: rgba(108, 123, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(108, 123, 255, 0.3);
+}
+
+.download-note i {
+    color: var(--accent-color);
+}
+
 .download-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -909,8 +1070,18 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .download-cards {
+    .download-card-single {
+        padding: 40px 30px;
+    }
+
+    .download-features {
         grid-template-columns: 1fr;
+    }
+
+    .file-details {
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
     }
 
     .requirements-grid {
