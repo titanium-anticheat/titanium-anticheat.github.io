@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCounterAnimations();
     initParticleSystem();
     initScrollAnimations();
-    initTypingEffect();
+    // initTypingEffect(); // Disabled to prevent HTML display issues
     initMouseFollower();
     initDownloadHandlers();
     initThemeToggle();
@@ -223,7 +223,7 @@ function initMouseFollower() {
 
 // Download button handlers
 function initDownloadHandlers() {
-    const downloadBtns = document.querySelectorAll('.download-btn');
+    const downloadBtns = document.querySelectorAll('.download-btn, .download-main-btn');
 
     downloadBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -236,7 +236,7 @@ function initDownloadHandlers() {
             }, 150);
 
             // Show download notification
-            showNotification('Download started! Check your downloads folder.', 'success');
+            showNotification('TitaniumAnticheat.exe download started! Check your downloads folder.', 'success');
 
             // Simulate download progress
             showDownloadProgress();
